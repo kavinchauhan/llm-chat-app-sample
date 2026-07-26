@@ -47,7 +47,8 @@ if prompt := st.chat_input("What is on your mind?"):
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             try:
-                response = requests.post(API_URL, json=payload, headers=headers)
+            #    response = requests.post(API_URL, json=payload, headers=headers)
+                response = requests.post(API_URL, json=payload, headers=headers, verify=False)
                 
                 # Check for standard HTTP errors (404, 500, etc.)
                 response.raise_for_status()
